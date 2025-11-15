@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Market Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+<body>
+
+       <!-- Navigation Bar -->
+    <nav class="tm-navbar">
+        <a href="#" class="tm-brand">Thememarket</a>
+        
+        <ul class="tm-nav-menu">
+            <li class="tm-nav-item">
+                <a href="index.html" class="tm-nav-link">Home</a>
+            </li>
+            <li class="tm-nav-item">
+                <a href="theme.html" class="tm-nav-link">Themes</a>
+                <div class="tm-dropdown-content">
+                    <a href="#" class="tm-dropdown-link">Business Themes</a>
+                    <a href="#" class="tm-dropdown-link">Portfolio Themes</a>
+                    <a href="#" class="tm-dropdown-link">Blog Themes</a>
+                    <a href="#" class="tm-dropdown-link">E-Commerce Themes</a>
+                </div>
+            </li>
+            <li class="tm-nav-item">
+                <a href="template.html" class="tm-nav-link">Templates</a>
+                <div class="tm-dropdown-content">
+                    <a href="#" class="tm-dropdown-link">HTML Templates</a>
+                    <a href="#" class="tm-dropdown-link">Landing Page Templates</a>
+                    <a href="#" class="tm-dropdown-link">UI Kits</a>
+                </div>
+            </li>
+            <li class="tm-nav-item">
+                <a href="about.html" class="tm-nav-link">About Us</a>
+            </li>
+            <li class="tm-nav-item">
+                <a href="contact.html" class="tm-nav-link tm-active">Contact</a>
+            </li>
+        </ul>
+
+        <div class="tm-nav-actions">
+            <button class="tm-icon-btn" id="tmUserBtn" aria-label="User account">
+              <i class="fa-regular fa-circle-user"></i>
+            </button>
+        <button class="tm-icon-btn tm-active" >
+                 <a href="cart.html" style="text-decoration: none; color:#76C01D">   <i class="fa-solid fa-cart-shopping"></i></a>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Auth Modal -->
+    <div class="tm-modal-overlay" id="tmAuthModal">
+        <div class="tm-modal-container">
+            <div class="tm-modal-left">
+                <div class="tm-modal-circle-large"></div>
+                <div class="tm-modal-circle-small"></div>
+            </div>
+            <div class="tm-modal-right">
+                <button class="tm-close-btn" id="tmCloseModal">&times;</button>
+                
+                <!-- Sign In Form -->
+                <div id="tmSignInForm">
+                    <h2 class="tm-modal-title">Sign in</h2>
+                    <form>
+                        <div class="tm-form-group">
+                            <input type="text" class="tm-form-input" placeholder="Full name" required>
+                        </div>
+                        <div class="tm-form-group">
+                            <input type="email" class="tm-form-input" placeholder="Email" required>
+                        </div>
+                        <div class="tm-checkbox-group">
+                            <input type="checkbox" id="tmTerms">
+                            <label for="tmTerms">I understood the <a href="#">terms & policy</a>.</label>
+                        </div>
+                        <button type="submit" class="tm-submit-btn">Create Account</button>
+                    </form>
+                    <div class="tm-divider"><span>OR</span></div>
+                    <button class="tm-google-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Sign in with Google
+                    </button>
+                    <div class="tm-switch-auth">
+                        Already have an account? <a href="#" id="tmSwitchToLogin">Log in</a>
+                    </div>
+                </div>
+
+                <!-- Log In Form -->
+                <div id="tmLogInForm" class="tm-hidden">
+                    <h2 class="tm-modal-title">Log in</h2>
+                    <form>
+                        <div class="tm-form-group">
+                            <input type="email" class="tm-form-input" placeholder="Email" required>
+                        </div>
+                        <div class="tm-form-group">
+                            <input type="password" class="tm-form-input" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="tm-submit-btn">Log In</button>
+                    </form>
+                    <div class="tm-divider"><span>OR</span></div>
+                    <button class="tm-google-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Sign in with Google
+                    </button>
+                    <div class="tm-switch-auth">
+                        Don't have an account? <a href="#" id="tmSwitchToSignIn">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+      <!-- Hero Banner -->
+    <section class="abouthero-banner">
+        <div class="hero-content">
+            <h1 class="abhero-title">We'd Love to Hear From You</h1>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search for WordPress, E commerce...">
+                <button class="absearch-btn">Search</button>
+            </div>
+        </div>
+    </section>
+     <!-- Contact Section -->
+    <div class="contact-wrapper">
+        <div class="contact-header">
+            <h1 class="contact-heading">Get In Touch</h1>
+            <p class="contact-subheading">Have questions or need assistance? We're here to help. Reach out to us through any of the following channels.</p>
+        </div>
+
+        <div class="contact-methods">
+            <div class="method-box">
+                <div class="cmethod-icon"><i class="fa-solid fa-envelope"></i></div>
+                <h3 class="method-title">Email Us</h3>
+                <p class="method-detail">Our team is here to help</p>
+                <p class="method-info">support@marketplace.com</p>
+            </div>
+
+            <div class="method-box">
+                <div class="cmethod-icon"><i class="fa-solid fa-phone"></i></div>
+                <h3 class="method-title">Call Us</h3>
+                <p class="method-detail">Mon-Fri from 9am to 6pm</p>
+                <p class="method-info">+1 (555) 123-4567</p>
+            </div>
+
+            <div class="method-box">
+                <div class="cmethod-icon"><i class="fa-regular fa-message"></i></div>
+                <h3 class="method-title">Live Chat</h3>
+                <p class="method-detail">Get instant support</p>
+                <p class="method-info">Average response: 2 minutes</p>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="form-section">
+            <h2 class="form-heading">Send Us a Message</h2>
+            <p class="form-description">Fill out the form below and we'll get back to you as soon as possible.</p>
+            
+            <form id="contactForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-textarea" required></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-wrapper">
+        <div class="faq-header">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            <p class="faq-subtitle">Quick answers to common questions</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What are your support hours?</span>
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our support team is available Monday through Friday, 9:00 AM to 6:00 PM EST. We also monitor emails on weekends and will respond as soon as possible.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How quickly will I get a response?</span>
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Response times vary by department: Sales inquiries within 2 hours, Support tickets within 4 hours, and General inquiries within 24 hours during business days.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer phone support?</span>
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Phone support is available for Business plan subscribers. All other customers can reach us via email, live chat, or our contact form.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I schedule a demo or consultation?</span>
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! Contact our sales team at sales@marketplace.com to schedule a personalized demo or consultation session.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Where is your company located?</span>
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our headquarters is located in San Francisco, CA, but we have a global remote team serving customers in over 150 countries.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-footer">
+            <p class="faq-footer-text">Still have questions?</p>
+            <button class="help-center-btn">Visit Help Center</button>
+        </div>
+    </div>
+
+    <!-- Support Banner -->
+    <div class="contact-wrapper">
+        <div class="support-banner">
+            <div class="support-icon">✓</div>
+            <h2 class="support-title">We're Here to Help</h2>
+            <p class="support-description">Our dedicated support team is committed to providing you with the best experience. Whether you need technical assistance, have sales questions, or just want to say hello, we're always happy to hear from you.</p>
+            <div class="support-features">
+                <div class="support-feature">
+                    <div class="feature-checkmark">✓</div>
+                    <span>24-hour response time</span>
+                </div>
+                <div class="support-feature">
+                    <div class="feature-checkmark">✓</div>
+                    <span>Expert support team</span>
+                </div>
+                <div class="support-feature">
+                    <div class="feature-checkmark">✓</div>
+                    <span>Multiple contact options</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h3 class="modal-title">Message Sent Successfully!</h3>
+            <p class="modal-message">Thank you for reaching out. We've received your message and will get back to you as soon as possible.</p>
+            <button class="modal-close-btn" id="closeModal">Close</button>
+        </div>
+    </div>
+
+      <!-- Footer Section -->
+    <footer class="footer-container">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <h2>ThemeMarket</h2>
+                    <div class="footer-links">
+                        <a href="#">All Items</a>
+                        <a href="#">WordPress Themes</a>
+                        <a href="#">HTML Templates</a>
+                        <a href="#">UI Templates</a>
+                        <a href="#">Plugins</a>
+                    </div>
+                </div>
+
+                <!-- Company Column -->
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <div class="footer-links">
+                        <a href="#">About</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Press</a>
+                        <a href="#">Blog</a>
+                    </div>
+                </div>
+
+                <!-- Support Column -->
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <div class="footer-links">
+                        <a href="#">Help Center</a>
+                        <a href="#">Documentation</a>
+                        <a href="#">Forums</a>
+                        <a href="#">Contact Support</a>
+                    </div>
+                </div>
+
+                <!-- Legal Column -->
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <div class="footer-links">
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">License Agreement</a>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 ThemeMarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Market Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+</head>
+<body>
+
+       <!-- Navigation Bar -->
+    <nav class="tm-navbar">
+        <a href="#" class="tm-brand">Thememarket</a>
+        
+        <ul class="tm-nav-menu">
+            <li class="tm-nav-item">
+                <a href="index.html" class="tm-nav-link">Home</a>
+            </li>
+            <li class="tm-nav-item">
+                <a href="theme.html" class="tm-nav-link">Themes</a>
+                <div class="tm-dropdown-content">
+                    <a href="#" class="tm-dropdown-link">Business Themes</a>
+                    <a href="#" class="tm-dropdown-link">Portfolio Themes</a>
+                    <a href="#" class="tm-dropdown-link">Blog Themes</a>
+                    <a href="#" class="tm-dropdown-link">E-Commerce Themes</a>
+                </div>
+            </li>
+            <li class="tm-nav-item">
+                <a href="template.html" class="tm-nav-link tm-active">Templates</a>
+                <div class="tm-dropdown-content">
+                    <a href="#" class="tm-dropdown-link">HTML Templates</a>
+                    <a href="#" class="tm-dropdown-link">Landing Page Templates</a>
+                    <a href="#" class="tm-dropdown-link">UI Kits</a>
+                </div>
+            </li>
+            <li class="tm-nav-item">
+                <a href="about.html" class="tm-nav-link">About Us</a>
+            </li>
+            <li class="tm-nav-item">
+                <a href="contact.html" class="tm-nav-link">Contact</a>
+            </li>
+        </ul>
+
+        <div class="tm-nav-actions">
+            <button class="tm-icon-btn" id="tmUserBtn" aria-label="User account">
+              <i class="fa-regular fa-circle-user"></i>
+            </button>
+        <button class="tm-icon-btn" >
+                 <a href="cart.html" style="text-decoration: none; color:#76C01D">   <i class="fa-solid fa-cart-shopping"></i></a>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Auth Modal -->
+    <div class="tm-modal-overlay" id="tmAuthModal">
+        <div class="tm-modal-container">
+            <div class="tm-modal-left">
+                <div class="tm-modal-circle-large"></div>
+                <div class="tm-modal-circle-small"></div>
+            </div>
+            <div class="tm-modal-right">
+                <button class="tm-close-btn" id="tmCloseModal">&times;</button>
+                
+                <!-- Sign In Form -->
+                <div id="tmSignInForm">
+                    <h2 class="tm-modal-title">Sign in</h2>
+                    <form>
+                        <div class="tm-form-group">
+                            <input type="text" class="tm-form-input" placeholder="Full name" required>
+                        </div>
+                        <div class="tm-form-group">
+                            <input type="email" class="tm-form-input" placeholder="Email" required>
+                        </div>
+                        <div class="tm-checkbox-group">
+                            <input type="checkbox" id="tmTerms">
+                            <label for="tmTerms">I understood the <a href="#">terms & policy</a>.</label>
+                        </div>
+                        <button type="submit" class="tm-submit-btn">Create Account</button>
+                    </form>
+                    <div class="tm-divider"><span>OR</span></div>
+                    <button class="tm-google-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Sign in with Google
+                    </button>
+                    <div class="tm-switch-auth">
+                        Already have an account? <a href="#" id="tmSwitchToLogin">Log in</a>
+                    </div>
+                </div>
+
+                <!-- Log In Form -->
+                <div id="tmLogInForm" class="tm-hidden">
+                    <h2 class="tm-modal-title">Log in</h2>
+                    <form>
+                        <div class="tm-form-group">
+                            <input type="email" class="tm-form-input" placeholder="Email" required>
+                        </div>
+                        <div class="tm-form-group">
+                            <input type="password" class="tm-form-input" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="tm-submit-btn">Log In</button>
+                    </form>
+                    <div class="tm-divider"><span>OR</span></div>
+                    <button class="tm-google-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Sign in with Google
+                    </button>
+                    <div class="tm-switch-auth">
+                        Don't have an account? <a href="#" id="tmSwitchToSignIn">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="hero-container">
+        <div class="hero-grid">
+            <!-- Left Content Section -->
+            <div class="content-section">
+                <div class="title-appear">
+                    <h1 class="hero-title">Templates & UI Kits</h1>
+                </div>
+                
+                <div class="description-reveal">
+                    <p class="hero-description">
+                        Browse our collection of premium HTML Templates, landing pages, and UI kits. Built with modern frameworks 
+                        and ready to customize for your project.
+                    </p>
+                </div>
+
+                <div class="search-wrapper">
+                    <div class="search-container">
+                        <div class="search-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <input type="text" class="search-input"  placeholder="Search for WordPress, E commerce...">
+                        
+                        <button class="tsearch-button">Search</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Image Section -->
+            <div class="image-section">
+                
+                    <img src="Images/temp hero.png" alt="Food Website Mockup"  class="mockup-image1">
+                    
+                    </div>
+                </div>
+
+           
+        </div>
+    </div>
+
+    <main class="temarketplace-container">
+        <section>
+            <h2 class="section-heading">Save on UI Templates</h2>
+            <div class="product-grid" id="saveTemplates">
+                <div class="product-card" data-name="Flatsome - Multi-Purpose" data-keywords="flatsome multi purpose marketing agency landing">
+                    <img src="Images/th 1.png" alt="Flatsome Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Flatsome - Multi-Purpose</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Flatsome - Multi-Purpose', '$99', 'Images/th 1.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="Horizon - Modern Landing Page Template" data-keywords="horizon modern landing page template web design">
+                    <img src="Images/te 1.png" alt="Horizon Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Horizon - Modern Landing Page Template</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Horizon - Modern Landing Page', '$99', 'Images/te 1.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="AdminPro - Dashboard UI Kit" data-keywords="adminpro dashboard ui kit admin panel">
+                    <img src="Images/te 2.jpg" alt="AdminPro Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">AdminPro - Dashboard UI Kit</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('AdminPro - Dashboard UI Kit', '$99', 'Images/te 2.jp')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-heading">Weekly Bestsellers</h2>
+            <div class="product-grid" id="weeklyBestsellers">
+                <div class="product-card" data-name="Flatsome - Multi-Purpose" data-keywords="flatsome multi purpose restaurant cafe">
+                    <img src="Images/te 3.png" alt="Flatsome Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Flatsome - Multi-Purpose</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Flatsome - Multi-Purpose', '$99', 'Images/te 3.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="Food Delivery Website" data-keywords="food delivery website restaurant order">
+                    <img src="Images/theme banner.jpg" alt="Food Delivery Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Food Delivery Website</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Food Delivery Website', '$99', 'Images/theme banner.jpg')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="AdminPro - Dashboard UI Kit" data-keywords="adminpro dashboard ui kit admin management">
+                    <img src="Images/th 4.png" alt="AdminPro Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">AdminPro - Dashboard UI Kit</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('AdminPro - Dashboard UI Kit', '$99', 'Images/th 4.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="ComponentHub - React UI Kit" data-keywords="componenthub react ui kit components travel">
+                    <img src="Images/th 8.jpeg" alt="ComponentHub Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">ComponentHub - React UI Kit</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('ComponentHub - React UI Kit', '$99', 'Images/th 8.jpeg')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="LaunchKit - SaaS Landing Template" data-keywords="launchkit saas landing template startup">
+                    <img src="Images/te 5.png" alt="LaunchKit Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">LaunchKit - SaaS Landing Template</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('LaunchKit - SaaS Landing', '$99', 'Images/te 5.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                    
+                </div>
+                 <div class="product-card" data-name="ComponentHub - React UI Kit" data-keywords="componenthub react ui kit components travel">
+                    <img src="Images/te 6.png" alt="ComponentHub Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">ComponentHub - React UI Kit</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('ComponentHub - React UI Kit', '$99', 'Images/te 6.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-heading">Top Sellers</h2>
+            <div class="product-grid" id="topSellers">
+                <div class="product-card" data-name="Flatsome - Multi-Purpose" data-keywords="flatsome multi purpose web design portfolio">
+                    <img src="Images/th 11.jpeg" alt="Flatsome Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Flatsome - Multi-Purpose</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Flatsome - Multi-Purpose', '$99', 'Images/th 11.jpeg')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="Food Delivery Website" data-keywords="food delivery website restaurant ordering">
+                    <img src="Images/te 7.jpg" alt="Food Delivery Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Food Delivery Website</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Food Delivery Website', '$99', 'Images/te 7.jpg')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="AdminPro - Dashboard UI Kit" data-keywords="adminpro dashboard ui kit admin interface">
+                    <img src="Images/th 6.jpg" alt="AdminPro Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">AdminPro - Dashboard UI Kit</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('AdminPro - Dashboard UI Kit', '$99', 'Images/th 6.jpg')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-heading">Top Clean Items</h2>
+            <div class="product-grid" id="cleanItems">
+                <div class="product-card" data-name="Flatsome - Multi-Purpose" data-keywords="flatsome multi purpose clean minimal professional">
+                    <img src="Images/te 8.png" alt="Flatsome Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Flatsome - Multi-Purpose</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Flatsome - Multi-Purpose', '$99', 'Images/te 8.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="Food Delivery Website" data-keywords="food delivery website clean modern restaurant">
+                    <img src="Images/te 9.png" alt="Food Delivery Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Food Delivery Website</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Food Delivery Website', '$99', 'Images/te 9.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="AdminPro - Dashboard UI Kit" data-keywords="adminpro dashboard ui kit clean professional">
+                    <img src="Images/te 10.png" alt="AdminPro Template" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">AdminPro - Dashboard UI Kit</h3>
+                        <p class="product-author">by UX-themes</p>
+                        <div class="product-footer">
+                            <div class="product-details">
+                                <span class="product-price">$99</span>
+                                <div class="product-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <span class="product-sales">205 Sales</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('AdminPro - Dashboard UI Kit', '$99', 'Images/te 10.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="cartModal" onclick="closeModalOnOverlay(event)">
+        <div class="modal-content">
+            <div class="modal-checkmark">✓</div>
+            <h2 class="modal-title">Item added to your cart</h2>
+            <div class="modal-product">
+                <img id="modalProductImage" src="" alt="Product" class="modal-product-image">
+                <div class="modal-product-details">
+                    <div class="modal-product-price" id="modalProductPrice">$19</div>
+                    <div class="modal-product-license">License : Regular</div>
+                    <div class="modal-product-support">Support: 6 month support</div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn keep-browsing-btn" onclick="closeModal()">Keep Browsing</button>
+                <button class="modal-btn checkout-btn" onclick="goToCheckout()">Go to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+
+       <div class="newsletter-area">
+            <h2 class="newsletter-heading">Stay Updated</h2>
+            <p class="newsletter-text">Get the latest themes, exclusive deals, and design inspiration delivered to your inbox weekly</p>
+            
+            <div class="subscription-form">
+                <input type="email" class="email-input" placeholder="Enter your email">
+                <button class="submit-btn">Subscribe</button>
+            </div>
+            
+            <p class="privacy-notice">By subscribing, you agree to our Privacy Policy and consent to receive updates</p>
+        </div>
+    </div>
+
+
+
+
+     <!-- Testimonials Section -->
+    <div class="testimonials-wrapper">
+        <div class="testimonials-header">
+            <div class="testimonials-badge">What Our Customers Say</div>
+            <p class="testimonials-subtitle">Join thousands of satisfied customers</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="client-info">
+                    <div class="client-avatar">
+                        <img src="Images/t1.png" alt="Sarah Johnson">
+                    </div>
+                    <div class="client-details">
+                        <h3>Sarah Johnson</h3>
+                        <p>Web Developer</p>
+                    </div>
+                </div>
+                <div class="rating-stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="testimonial-text">The quality of themes on this marketplace is outstanding. I've built over 20 client sites using templates from here and they never disappoint.</p>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <div class="client-info">
+                    <div class="client-avatar">
+                        <img src="Images/t2.png" alt="Michael Chen">
+                    </div>
+                    <div class="client-details">
+                        <h3>Michael Chen</h3>
+                        <p>Agency Owner</p>
+                    </div>
+                </div>
+                <div class="rating-stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="testimonial-text">As an agency, we rely on high-quality templates to deliver projects quickly. The variety and quality here are unmatched in the industry.</p>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="client-info">
+                    <div class="client-avatar">
+                        <img src="Images/t3.png" alt="Emily Rodriguez">
+                    </div>
+                    <div class="client-details">
+                        <h3>Emily Rodriguez</h3>
+                        <p>Freelance Designer</p>
+                    </div>
+                </div>
+                <div class="rating-stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="testimonial-text">I love how easy it is to customize these themes. The documentation is excellent and the support from authors is fantastic.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer-container">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <h2>ThemeMarket</h2>
+                    <div class="footer-links">
+                        <a href="#">All Items</a>
+                        <a href="#">WordPress Themes</a>
+                        <a href="#">HTML Templates</a>
+                        <a href="#">UI Templates</a>
+                        <a href="#">Plugins</a>
+                    </div>
+                </div>
+
+                <!-- Company Column -->
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <div class="footer-links">
+                        <a href="#">About</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Press</a>
+                        <a href="#">Blog</a>
+                    </div>
+                </div>
+
+                <!-- Support Column -->
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <div class="footer-links">
+                        <a href="#">Help Center</a>
+                        <a href="#">Documentation</a>
+                        <a href="#">Forums</a>
+                        <a href="#">Contact Support</a>
+                    </div>
+                </div>
+
+                <!-- Legal Column -->
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <div class="footer-links">
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">License Agreement</a>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 ThemeMarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

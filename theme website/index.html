@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Market Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+</head>
+<body>
+     <!-- Navigation Bar -->
+    <nav class="tm-navbar">
+        <a href="#" class="tm-brand">Thememarket</a>
+        
+        <ul class="tm-nav-menu">
+            <li class="tm-nav-item">
+                <a href="index.html" class="tm-nav-link tm-active">Home</a>
+            </li>
+            <li class="tm-nav-item">
+                <a href="theme.html" class="tm-nav-link">Themes</a>
+                <div class="tm-dropdown-content">
+                    <a href="#" class="tm-dropdown-link">Business Themes</a>
+                    <a href="#" class="tm-dropdown-link">Portfolio Themes</a>
+                    <a href="#" class="tm-dropdown-link">Blog Themes</a>
+                    <a href="#" class="tm-dropdown-link">E-Commerce Themes</a>
+                </div>
+            </li>
+            <li class="tm-nav-item">
+                <a href="template.html" class="tm-nav-link">Templates</a>
+                <div class="tm-dropdown-content">
+                    <a href="#" class="tm-dropdown-link">HTML Templates</a>
+                    <a href="#" class="tm-dropdown-link">Landing Page Templates</a>
+                    <a href="#" class="tm-dropdown-link">UI Kits</a>
+                </div>
+            </li>
+            <li class="tm-nav-item">
+                <a href="about.html" class="tm-nav-link">About Us</a>
+            </li>
+            <li class="tm-nav-item">
+                <a href="contact.html" class="tm-nav-link">Contact</a>
+            </li>
+        </ul>
+
+        <div class="tm-nav-actions">
+            <button class="tm-icon-btn" id="tmUserBtn" aria-label="User account">
+              <i class="fa-regular fa-circle-user"></i>
+            </button>
+        <button class="tm-icon-btn" >
+                 <a href="cart.html" style="text-decoration: none; color:#76C01D">   <i class="fa-solid fa-cart-shopping"></i></a>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Auth Modal -->
+    <div class="tm-modal-overlay" id="tmAuthModal">
+        <div class="tm-modal-container">
+            <div class="tm-modal-left">
+                <div class="tm-modal-circle-large"></div>
+                <div class="tm-modal-circle-small"></div>
+            </div>
+            <div class="tm-modal-right">
+                <button class="tm-close-btn" id="tmCloseModal">&times;</button>
+                
+                <!-- Sign In Form -->
+                <div id="tmSignInForm">
+                    <h2 class="tm-modal-title">Sign in</h2>
+                    <form>
+                        <div class="tm-form-group">
+                            <input type="text" class="tm-form-input" placeholder="Full name" required>
+                        </div>
+                        <div class="tm-form-group">
+                            <input type="email" class="tm-form-input" placeholder="Email" required>
+                        </div>
+                        <div class="tm-checkbox-group">
+                            <input type="checkbox" id="tmTerms">
+                            <label for="tmTerms">I understood the <a href="#">terms & policy</a>.</label>
+                        </div>
+                        <button type="submit" class="tm-submit-btn">Create Account</button>
+                    </form>
+                    <div class="tm-divider"><span>OR</span></div>
+                    <button class="tm-google-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Sign in with Google
+                    </button>
+                    <div class="tm-switch-auth">
+                        Already have an account? <a href="#" id="tmSwitchToLogin">Log in</a>
+                    </div>
+                </div>
+
+                <!-- Log In Form -->
+                <div id="tmLogInForm" class="tm-hidden">
+                    <h2 class="tm-modal-title">Log in</h2>
+                    <form>
+                        <div class="tm-form-group">
+                            <input type="email" class="tm-form-input" placeholder="Email" required>
+                        </div>
+                        <div class="tm-form-group">
+                            <input type="password" class="tm-form-input" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="tm-submit-btn">Log In</button>
+                    </form>
+                    <div class="tm-divider"><span>OR</span></div>
+                    <button class="tm-google-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Sign in with Google
+                    </button>
+                    <div class="tm-switch-auth">
+                        Don't have an account? <a href="#" id="tmSwitchToSignIn">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <section class="ib-hero-section">
+        <!-- Left Content -->
+        <div class="ib-left-content">
+            <div class="ib-badge">50,000+ Premium Templates Available</div>
+            
+            <h1 class="ib-main-title">
+                Build Stunning
+                <span class="ib-highlight">Websites Faster</span>
+            </h1>
+            
+            <p class="ib-description">
+                Access thousands of professionally designed WordPress themes and templates. Launch your dream website in minutes, not months.
+            </p>
+            
+            <div class="ib-search-container">
+                <svg class="ib-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" class="ib-search-input" placeholder="Search for WordPress, E-commerce...">
+                <button class="ib-search-btn">Search</button>
+            </div>
+            
+            <div class="ib-stats-row">
+                <div class="ib-users-stat">
+                    <div class="ib-user-avatars">
+                        <div class="ib-avatar">A</div>
+                        <div class="ib-avatar">B</div>
+                        <div class="ib-avatar">C</div>
+                        <div class="ib-avatar">D</div>
+                    </div>
+                    <div class="ib-stat-info">
+                        <h3>12M+ Users</h3>
+                        <p>Trusted worldwide</p>
+                    </div>
+                </div>
+                
+                <div class="ib-rating-stat">
+                    <div class="ib-rating-icon">★</div>
+                    <div class="ib-stat-info">
+                        <h3>4.9/5 Rating</h3>
+                        <p>From 50k reviews</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Showcase -->
+        <div class="ib-right-showcase">
+            <div class="ib-image-card ib-card-1">
+                <img src="Images/te 7.jpg" alt="Food Website">
+            </div>
+            <div class="ib-image-card ib-card-2">
+                <img src="Images/index 2.jpg" alt="Restaurant Website">
+            </div>
+            <div class="ib-image-card ib-card-3">
+                <img src="Images/index 3.jpg" alt="Travel Website">
+            </div>
+            <div class="ib-image-card ib-card-4">
+                <img src="Images/th 12.jpeg" alt="E-commerce Website">
+            </div>
+            <div class="ib-image-card ib-card-5">
+                <img src="Images/te 3.png" alt="Menu Website">
+            </div>
+        </div>
+    </section>
+
+       <div class="bc-category-section">
+        <div class="bc-header">
+            <div class="bc-title-badge">Browse by Category</div>
+            <p class="bc-subtitle">Find the perfect template for your project</p>
+        </div>
+
+        <div class="bc-grid">
+            <!-- WordPress -->
+            <div class="bc-category-card bc-wordpress">
+                <div class="bc-icon-wrapper">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                </div>
+                <h3 class="bc-category-name">Word Press</h3>
+                <p class="bc-item-count">14,289 Items</p>
+            </div>
+
+            <!-- E-Commerce -->
+            <div class="bc-category-card bc-ecommerce">
+                <div class="bc-icon-wrapper">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-6 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/>
+                    </svg>
+                </div>
+                <h3 class="bc-category-name">e Commerce</h3>
+                <p class="bc-item-count">8,562 Items</p>
+            </div>
+
+            <!-- Photography -->
+            <div class="bc-category-card bc-photography">
+                <div class="bc-icon-wrapper">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="3.2"/>
+                        <path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                    </svg>
+                </div>
+                <h3 class="bc-category-name">Photography</h3>
+                <p class="bc-item-count">3,421 Items</p>
+            </div>
+
+            <!-- Business -->
+            <div class="bc-category-card bc-business">
+                <div class="bc-icon-wrapper">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 7h-4V5l-2-2h-4L8 5v2H4c-1.1 0-2 .9-2 2v5c0 .75.4 1.38 1 1.73V19c0 1.11.89 2 2 2h14c1.11 0 2-.89 2-2v-3.28c.59-.35 1-.99 1-1.72V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5zM4 9h16v5h-5v-3H9v3H4V9zm9 6h-2v-2h2v2zm6 4H5v-3h4v1h6v-1h4v3z"/>
+                    </svg>
+                </div>
+                <h3 class="bc-category-name">Business</h3>
+                <p class="bc-item-count">9,156 Items</p>
+            </div>
+
+            <!-- Blog Magazine -->
+            <div class="bc-category-card bc-blog">
+                <div class="bc-icon-wrapper">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                </div>
+                <h3 class="bc-category-name">Blog Magazine</h3>
+                <p class="bc-item-count">5,234 Items</p>
+            </div>
+
+            <!-- Mobile Apps -->
+            <div class="bc-category-card bc-mobile">
+                <div class="bc-icon-wrapper">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-1-6h-3V8h-2v5H8l4 4 4-4z"/>
+                    </svg>
+                </div>
+                <h3 class="bc-category-name">Mobile Apps</h3>
+                <p class="bc-item-count">2,890 Items</p>
+            </div>
+
+            <!-- Marketing -->
+            <div class="bc-category-card bc-marketing">
+                <div class="bc-icon-wrapper">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                        <path d="M3 10L1 8l2.5-2.5L5 7V3h4v4h3v7c0 1.66-1.34 3-3 3s-3-1.34-3-3v-4H3z" transform="translate(5, 3) scale(0.7)"/>
+                    </svg>
+                </div>
+                <h3 class="bc-category-name">Marketing</h3>
+                <p class="bc-item-count">4,567 Items</p>
+            </div>
+
+            <!-- Technology -->
+            <div class="bc-category-card bc-technology">
+                <div class="bc-icon-wrapper">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" opacity="0.3"/>
+                    </svg>
+                </div>
+                <h3 class="bc-category-name">Technology</h3>
+                <p class="bc-item-count">6,123 Items</p>
+            </div>
+        </div>
+    </div>
+
+
+     <div class="themes-wrapper">
+        <div class="themes-header">
+            <div class="themes-badge">Featured WordPress Themes</div>
+            <p class="themes-description">Every week, our staff personally hand-pick some of the<br>best new website themes from our collection.</p>
+            <a href="theme.html" class="view-all-btn">View all Featured Themes</a>
+        </div>
+
+        <div class="themes-grid">
+            <!-- Theme Card 1 -->
+            <div class="theme-card">
+                <div class="theme-image-container">
+                    <img src="Images/th 1.png" alt="Flatsome - Multi-Purpose" class="theme-preview-img">
+                </div>
+                <div class="theme-content">
+                    <h3 class="theme-title">Flatsome - Multi-Purpose</h3>
+                    <p class="theme-author">by UX-themes</p>
+                    <div class="theme-footer">
+                        <div class="theme-pricing">
+                            <div class="theme-price">$99</div>
+                            <div class="theme-rating">
+                                <span class="star-icons">★★★★☆</span>
+                                <span>6</span>
+                            </div>
+                            <div class="theme-sales">205 Sales</div>
+                        </div>
+                        <div class="theme-actions">
+                            <button class="cart-btn" onclick="openCartModal('Flatsome - Multi-Purpose', '$99', 'Images/th 1.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-btn">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Card 2 -->
+            <div class="theme-card">
+                <div class="theme-image-container">
+                    <img src="Images/th 2.png" alt="Restaurant Website" class="theme-preview-img">
+                </div>
+                <div class="theme-content">
+                    <h3 class="theme-title">Restaurant Website</h3>
+                    <p class="theme-author">by UX-themes</p>
+                    <div class="theme-footer">
+                        <div class="theme-pricing">
+                            <div class="theme-price">$12</div>
+                            <div class="theme-rating">
+                                <span class="star-icons">★★★★☆</span>
+                                <span>6</span>
+                            </div>
+                            <div class="theme-sales">205 Sales</div>
+                        </div>
+                        <div class="theme-actions">
+                            <button class="cart-btn" onclick="openCartModal('Restaurant Website', '$12', 'Images/th 2.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-btn">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Card 3 -->
+            <div class="theme-card">
+                <div class="theme-image-container">
+                    <img src="Images/th 4.png" alt="Avada - Website Builder For" class="theme-preview-img">
+                </div>
+                <div class="theme-content">
+                    <h3 class="theme-title">Avada - Website Builder For</h3>
+                    <p class="theme-author">by ThemeFusion</p>
+                    <div class="theme-footer">
+                        <div class="theme-pricing">
+                            <div class="theme-price">$12</div>
+                            <div class="theme-rating">
+                                <span class="star-icons">★★★★☆</span>
+                                <span>6</span>
+                            </div>
+                            <div class="theme-sales">205 Sales</div>
+                        </div>
+                        <div class="theme-actions">
+                            <button class="cart-btn" onclick="openCartModal('Avada - Website Builder For', '$12', 'Images/th 4.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-btn">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Card 4 -->
+            <div class="theme-card">
+                <div class="theme-image-container">
+                    <img src="Images/th 6.jpg" alt="Salient - Ecommerce multipurpose" class="theme-preview-img">
+                </div>
+                <div class="theme-content">
+                    <h3 class="theme-title">Salient - Ecommerce multipurpose</h3>
+                    <p class="theme-author">by UX-themes</p>
+                    <div class="theme-footer">
+                        <div class="theme-pricing">
+                            <div class="theme-price">$12</div>
+                            <div class="theme-rating">
+                                <span class="star-icons">★★★★☆</span>
+                                <span>6</span>
+                            </div>
+                            <div class="theme-sales">205 Sales</div>
+                        </div>
+                        <div class="theme-actions">
+                            <button class="cart-btn" onclick="openCartModal('Salient - Ecommerce multipurpose', '$12', 'Images/th 6.jpg')"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-btn">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Card 5 -->
+            <div class="theme-card">
+                <div class="theme-image-container">
+                    <img src="Images/th 7.jpg" alt="Uncode - Portfolio" class="theme-preview-img">
+                </div>
+                <div class="theme-content">
+                    <h3 class="theme-title">Uncode - Portfolio</h3>
+                    <p class="theme-author">by UX-themes</p>
+                    <div class="theme-footer">
+                        <div class="theme-pricing">
+                            <div class="theme-price">$12</div>
+                            <div class="theme-rating">
+                                <span class="star-icons">★★★★☆</span>
+                                <span>6</span>
+                            </div>
+                            <div class="theme-sales">205 Sales</div>
+                        </div>
+                        <div class="theme-actions">
+                            <button class="cart-btn" onclick="openCartModal('Uncode - Portfolio', '$12', 'Images/th 7.jpg')"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-btn">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Card 6 -->
+            <div class="theme-card">
+                <div class="theme-image-container">
+                    <img src="Images/th 7.jpg" alt="Porto - HTML Code" class="theme-preview-img">
+                </div>
+                <div class="theme-content">
+                    <h3 class="theme-title">Porto - HTML Code</h3>
+                    <p class="theme-author">by P-THEMES</p>
+                    <div class="theme-footer">
+                        <div class="theme-pricing">
+                            <div class="theme-price">$12</div>
+                            <div class="theme-rating">
+                                <span class="star-icons">★★★★☆</span>
+                                <span>6</span>
+                            </div>
+                            <div class="theme-sales">205 Sales</div>
+                        </div>
+                        <div class="theme-actions">
+                            <button class="cart-btn" onclick="openCartModal('Porto - HTML Code', '$12', 'Images/th 7.jpg')"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-btn">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal-overlay" id="cartModalOverlay" onclick="closeCartModal(event)">
+        <div class="cart-modal-content" onclick="event.stopPropagation()">
+            <div class="modal-checkmark">
+                <div class="checkmark-icon"></div>
+            </div>
+            <h2 class="modal-title">Item added to your cart</h2>
+            
+            <div class="modal-product-info">
+                <img id="modalProductImage" src="" alt="Product" class="modal-product-image">
+                <div class="modal-product-details">
+                    <h3 class="modal-product-name" id="modalProductName"></h3>
+                    <div class="modal-product-price" id="modalProductPrice"></div>
+                    <div class="modal-product-license">License : Regular</div>
+                    <div class="modal-product-support">Support: 6 month support</div>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="modal-btn continue-shopping-btn" onclick="closeCartModal()">Keep Browsing</button>
+                <button class="modal-btn checkout-btn" onclick="goToCheckout()">Go to Checkout</button>
+            </div>
+        </div>
+    </div>
+    
+      <!-- Trending Collections Section -->
+    <section class="tc-section">
+        <div class="tc-header">
+            <div class="tc-badge">Trending Collections</div>
+            <p class="tc-subtitle">Curated collections from our experts</p>
+        </div>
+
+        <div class="tc-collections-grid">
+            <!-- Card 1 -->
+            <div class="tc-card">
+                <img src="Images/te 3.png" alt="Modern Business Templates" class="tc-card-image">
+                <div class="tc-overlay">
+                    <h3 class="tc-overlay-title">Modern Business Templates</h3>
+                    <p class="tc-overlay-desc">Professional templates for corporate websites</p>
+                    <span class="tc-items-badge">24 Items</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="tc-card">
+                <img src="Images/tr1.jpg" alt="E-Commerce Themes" class="tc-card-image">
+                <div class="tc-overlay">
+                    <h3 class="tc-overlay-title">E-Commerce  Solutions</h3>
+                    <p class="tc-overlay-desc">Everything you need for online stores</p>
+                    <span class="tc-items-badge">32 Items</span>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="tc-card">
+                <img src="Images/te 8.png" alt="Portfolio Designs" class="tc-card-image">
+                <div class="tc-overlay">
+                    <h3 class="tc-overlay-title">Creative Portfolios</h3>
+                    <p class="tc-overlay-desc">Showcase your work with creative portfolio themes</p>
+                    <span class="tc-items-badge">18 Items</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Section -->
+    <section class="tc-trust-section">
+        <h2 class="tc-trust-title">Trusted by Millions Worldwide</h2>
+        <p class="tc-trust-subtitle">Join the largest digital marketplace community</p>
+
+        <div class="tc-stats-grid">
+            <div class="tc-stat-item">
+                <div class="tc-stat-number">12M+</div>
+                <div class="tc-stat-label">Community Members</div>
+            </div>
+            <div class="tc-stat-item">
+                <div class="tc-stat-number">50K+</div>
+                <div class="tc-stat-label">Digital Products</div>
+            </div>
+            <div class="tc-stat-item">
+                <div class="tc-stat-number">500M+</div>
+                <div class="tc-stat-label">Total Downloads</div>
+            </div>
+            <div class="tc-stat-item">
+                <div class="tc-stat-number">15K+</div>
+                <div class="tc-stat-label">Elite Authors</div>
+            </div>
+        </div>
+    </section>
+  <div class="bestseller-container">
+        <div class="section-header">
+            <h1 class="main-title">Best Sellers</h1>
+            <p class="subtitle-text">Top selling items this period</p>
+        </div>
+
+        <div class="tab-switcher">
+            <button class="tab-button active-tab" data-tab="week">This Week</button>
+            <button class="tab-button" data-tab="month">This Month</button>
+        </div>
+
+        <!-- This Week Content -->
+        <div class="products-grid" id="weekContent">
+            <div class="product-card">
+                <img src="Images/theme banner.jpg" alt="Flatsome Multi-Purpose" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Flatsome - Multi-Purpose</h3>
+                    <p class="author-name">by UX-themes</p>
+                    <div class="product-footer">
+                        <div class="price-rating-wrapper">
+                            <div class="product-price">$12</div>
+                            <div class="rating-section">
+                                <div class="star-display">
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon empty">★</span>
+                                </div>
+                                <span class="rating-count">6</span>
+                            </div>
+                            <div class="sales-info">205 Sales</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="cart-button"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-button">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Images/th 4.png" alt="Avada Website Builder" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Avada - Website Builder For</h3>
+                    <p class="author-name">by UX-themes</p>
+                    <div class="product-footer">
+                        <div class="price-rating-wrapper">
+                            <div class="product-price">$19</div>
+                            <div class="rating-section">
+                                <div class="star-display">
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon empty">★</span>
+                                </div>
+                                <span class="rating-count">6</span>
+                            </div>
+                            <div class="sales-info">205 Sales</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="cart-button"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-button">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Images/th 12.jpeg" alt="Food Delivery Website" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Food Delivery Website</h3>
+                    <p class="author-name">by UX-themes</p>
+                    <div class="product-footer">
+                        <div class="price-rating-wrapper">
+                            <div class="product-price">$25</div>
+                            <div class="rating-section">
+                                <div class="star-display">
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon empty">★</span>
+                                </div>
+                                <span class="rating-count">6</span>
+                            </div>
+                            <div class="sales-info">205 Sales</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="cart-button"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-button">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- This Month Content -->
+        <div class="products-grid content-hidden" id="monthContent">
+            <div class="product-card">
+                <img src="Images/te 7.jpg" alt="Food Delivery Website" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Food Delivery Website</h3>
+                    <p class="author-name">by UX-themes</p>
+                    <div class="product-footer">
+                        <div class="price-rating-wrapper">
+                            <div class="product-price">$12</div>
+                            <div class="rating-section">
+                                <div class="star-display">
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon empty">★</span>
+                                </div>
+                                <span class="rating-count">6</span>
+                            </div>
+                            <div class="sales-info">205 Sales</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="cart-button"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-button">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Images/th 7.jpg" alt="Uncode Creative Multiuse" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Uncode - Creative Multiuse</h3>
+                    <p class="author-name">by UX-themes</p>
+                    <div class="product-footer">
+                        <div class="price-rating-wrapper">
+                            <div class="product-price">$12</div>
+                            <div class="rating-section">
+                                <div class="star-display">
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon empty">★</span>
+                                </div>
+                                <span class="rating-count">6</span>
+                            </div>
+                            <div class="sales-info">205 Sales</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="cart-button"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-button">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Images/th 6.jpg" alt="E-Commerce Website" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">E - Commerce Website</h3>
+                    <p class="author-name">by UX-themes</p>
+                    <div class="product-footer">
+                        <div class="price-rating-wrapper">
+                            <div class="product-price">$12</div>
+                            <div class="rating-section">
+                                <div class="star-display">
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon">★</span>
+                                    <span class="star-icon empty">★</span>
+                                </div>
+                                <span class="rating-count">6</span>
+                            </div>
+                            <div class="sales-info">205 Sales</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="cart-button"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-button">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <div class="themes-wrapper">
+        <div class="themes-header">
+            <div class="themes-badge">New Arrivals</div>
+            <p class="themes-description">Fresh Templates added this week</p>
+            <a href="template.html" class="view-all-btn">View all </a>
+        </div>
+
+        <div class="themes-grid">
+            <!-- Theme Card 1 -->
+            <div class="theme-card">
+                <div class="theme-image-container">
+                    <img src="Images/th 1.png" alt="Flatsome - Multi-Purpose" class="theme-preview-img">
+                </div>
+                <div class="theme-content">
+                    <h3 class="theme-title">Flatsome - Multi-Purpose</h3>
+                    <p class="theme-author">by UX-themes</p>
+                    <div class="theme-footer">
+                        <div class="theme-pricing">
+                            <div class="theme-price">$99</div>
+                            <div class="theme-rating">
+                                <span class="star-icons">★★★★☆</span>
+                                <span>6</span>
+                            </div>
+                            <div class="theme-sales">205 Sales</div>
+                        </div>
+                        <div class="theme-actions">
+                            <button class="cart-btn" onclick="openCartModal('Flatsome - Multi-Purpose', '$99', 'Images/th 1.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-btn">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Card 2 -->
+            <div class="theme-card">
+                <div class="theme-image-container">
+                    <img src="Images/th 2.png" alt="Restaurant Website" class="theme-preview-img">
+                </div>
+                <div class="theme-content">
+                    <h3 class="theme-title">Restaurant Website</h3>
+                    <p class="theme-author">by UX-themes</p>
+                    <div class="theme-footer">
+                        <div class="theme-pricing">
+                            <div class="theme-price">$12</div>
+                            <div class="theme-rating">
+                                <span class="star-icons">★★★★☆</span>
+                                <span>6</span>
+                            </div>
+                            <div class="theme-sales">205 Sales</div>
+                        </div>
+                        <div class="theme-actions">
+                            <button class="cart-btn" onclick="openCartModal('Restaurant Website', '$12', 'Images/th 2.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-btn">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Card 3 -->
+            <div class="theme-card">
+                <div class="theme-image-container">
+                    <img src="Images/th 4.png" alt="Avada - Website Builder For" class="theme-preview-img">
+                </div>
+                <div class="theme-content">
+                    <h3 class="theme-title">Avada - Website Builder For</h3>
+                    <p class="theme-author">by ThemeFusion</p>
+                    <div class="theme-footer">
+                        <div class="theme-pricing">
+                            <div class="theme-price">$12</div>
+                            <div class="theme-rating">
+                                <span class="star-icons">★★★★☆</span>
+                                <span>6</span>
+                            </div>
+                            <div class="theme-sales">205 Sales</div>
+                        </div>
+                        <div class="theme-actions">
+                            <button class="cart-btn" onclick="openCartModal('Avada - Website Builder For', '$12', 'Images/th 4.png')"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-btn">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Card 4 -->
+            <div class="theme-card">
+                <div class="theme-image-container">
+                    <img src="Images/th 6.jpg" alt="Salient - Ecommerce multipurpose" class="theme-preview-img">
+                </div>
+                <div class="theme-content">
+                    <h3 class="theme-title">Salient - Ecommerce multipurpose</h3>
+                    <p class="theme-author">by UX-themes</p>
+                    <div class="theme-footer">
+                        <div class="theme-pricing">
+                            <div class="theme-price">$12</div>
+                            <div class="theme-rating">
+                                <span class="star-icons">★★★★☆</span>
+                                <span>6</span>
+                            </div>
+                            <div class="theme-sales">205 Sales</div>
+                        </div>
+                        <div class="theme-actions">
+                            <button class="cart-btn" onclick="openCartModal('Salient - Ecommerce multipurpose', '$12', 'Images/th 6.jpg')"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-btn">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Card 5 -->
+            <div class="theme-card">
+                <div class="theme-image-container">
+                    <img src="Images/th 7.jpg" alt="Uncode - Portfolio" class="theme-preview-img">
+                </div>
+                <div class="theme-content">
+                    <h3 class="theme-title">Uncode - Portfolio</h3>
+                    <p class="theme-author">by UX-themes</p>
+                    <div class="theme-footer">
+                        <div class="theme-pricing">
+                            <div class="theme-price">$12</div>
+                            <div class="theme-rating">
+                                <span class="star-icons">★★★★☆</span>
+                                <span>6</span>
+                            </div>
+                            <div class="theme-sales">205 Sales</div>
+                        </div>
+                        <div class="theme-actions">
+                            <button class="cart-btn" onclick="openCartModal('Uncode - Portfolio', '$12', 'Images/th 7.jpg')"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-btn">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Card 6 -->
+            <div class="theme-card">
+                <div class="theme-image-container">
+                    <img src="Images/th 7.jpg" alt="Porto - HTML Code" class="theme-preview-img">
+                </div>
+                <div class="theme-content">
+                    <h3 class="theme-title">Porto - HTML Code</h3>
+                    <p class="theme-author">by P-THEMES</p>
+                    <div class="theme-footer">
+                        <div class="theme-pricing">
+                            <div class="theme-price">$12</div>
+                            <div class="theme-rating">
+                                <span class="star-icons">★★★★☆</span>
+                                <span>6</span>
+                            </div>
+                            <div class="theme-sales">205 Sales</div>
+                        </div>
+                        <div class="theme-actions">
+                            <button class="cart-btn" onclick="openCartModal('Porto - HTML Code', '$12', 'Images/th 7.jpg')"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button class="preview-btn">Live Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal-overlay" id="cartModalOverlay" onclick="closeCartModal(event)">
+        <div class="cart-modal-content" onclick="event.stopPropagation()">
+            <div class="modal-checkmark">
+                <div class="checkmark-icon"></div>
+            </div>
+            <h2 class="modal-title">Item added to your cart</h2>
+            
+            <div class="modal-product-info">
+                <img id="modalProductImage" src="" alt="Product" class="modal-product-image">
+                <div class="modal-product-details">
+                    <h3 class="modal-product-name" id="modalProductName"></h3>
+                    <div class="modal-product-price" id="modalProductPrice"></div>
+                    <div class="modal-product-license">License : Regular</div>
+                    <div class="modal-product-support">Support: 6 month support</div>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="modal-btn continue-shopping-btn" onclick="closeCartModal()">Keep Browsing</button>
+                <button class="modal-btn checkout-btn" onclick="goToCheckout()">Go to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+ <div class="marketplace-wrapper">
+        <div class="hero-section">
+            <div class="hero-badge">Why Choose Our Marketplace</div>
+            <p class="hero-subtitle">Everything you need to build amazing websites</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="icon-container">
+                    <svg class="icon-svg" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Quality Guaranteed</h3>
+                <p class="feature-description">All items are reviewed by our team to ensure the highest standards</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="icon-container">
+                    <svg class="icon-svg" viewBox="0 0 24 24">
+                        <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Instant Downloads</h3>
+                <p class="feature-description">Get immediate access to your purchases, no waiting required</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="icon-container">
+                    <svg class="icon-svg" viewBox="0 0 24 24">
+                        <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">24/7 Support</h3>
+                <p class="feature-description">Our dedicated support team is here to help you anytime</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="icon-container">
+                    <svg class="icon-svg" viewBox="0 0 24 24">
+                        <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Regular Updates</h3>
+                <p class="feature-description">Authors constantly update items with new features and fixes</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="icon-container">
+                    <svg class="icon-svg" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Elite Authors</h3>
+                <p class="feature-description">Work with the best designers and developers in the industry</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="icon-container">
+                    <svg class="icon-svg" viewBox="0 0 24 24">
+                        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Great Value</h3>
+                <p class="feature-description">Competitive pricing with frequent sales and special offers</p>
+            </div>
+        </div>
+
+        <div class="newsletter-area">
+            <h2 class="newsletter-heading">Stay Updated</h2>
+            <p class="newsletter-text">Get the latest themes, exclusive deals, and design inspiration delivered to your inbox weekly</p>
+            
+            <div class="subscription-form">
+                <input type="email" class="email-input" placeholder="Enter your email">
+                <button class="submit-btn">Subscribe</button>
+            </div>
+            
+            <p class="privacy-notice">By subscribing, you agree to our Privacy Policy and consent to receive updates</p>
+        </div>
+    </div>
+
+
+
+
+     <!-- Testimonials Section -->
+    <div class="testimonials-wrapper">
+        <div class="testimonials-header">
+            <div class="testimonials-badge">What Our Customers Say</div>
+            <p class="testimonials-subtitle">Join thousands of satisfied customers</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="client-info">
+                    <div class="client-avatar">
+                        <img src="Images/t1.png" alt="Sarah Johnson">
+                    </div>
+                    <div class="client-details">
+                        <h3>Sarah Johnson</h3>
+                        <p>Web Developer</p>
+                    </div>
+                </div>
+                <div class="rating-stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="testimonial-text">The quality of themes on this marketplace is outstanding. I've built over 20 client sites using templates from here and they never disappoint.</p>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <div class="client-info">
+                    <div class="client-avatar">
+                        <img src="Images/t2.png" alt="Michael Chen">
+                    </div>
+                    <div class="client-details">
+                        <h3>Michael Chen</h3>
+                        <p>Agency Owner</p>
+                    </div>
+                </div>
+                <div class="rating-stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="testimonial-text">As an agency, we rely on high-quality templates to deliver projects quickly. The variety and quality here are unmatched in the industry.</p>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="client-info">
+                    <div class="client-avatar">
+                        <img src="Images/t3.png" alt="Emily Rodriguez">
+                    </div>
+                    <div class="client-details">
+                        <h3>Emily Rodriguez</h3>
+                        <p>Freelance Designer</p>
+                    </div>
+                </div>
+                <div class="rating-stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="testimonial-text">I love how easy it is to customize these themes. The documentation is excellent and the support from authors is fantastic.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer-container">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <h2>ThemeMarket</h2>
+                    <div class="footer-links">
+                        <a href="#">All Items</a>
+                        <a href="#">WordPress Themes</a>
+                        <a href="#">HTML Templates</a>
+                        <a href="#">UI Templates</a>
+                        <a href="#">Plugins</a>
+                    </div>
+                </div>
+
+                <!-- Company Column -->
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <div class="footer-links">
+                        <a href="#">About</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Press</a>
+                        <a href="#">Blog</a>
+                    </div>
+                </div>
+
+                <!-- Support Column -->
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <div class="footer-links">
+                        <a href="#">Help Center</a>
+                        <a href="#">Documentation</a>
+                        <a href="#">Forums</a>
+                        <a href="#">Contact Support</a>
+                    </div>
+                </div>
+
+                <!-- Legal Column -->
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <div class="footer-links">
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">License Agreement</a>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 ThemeMarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>

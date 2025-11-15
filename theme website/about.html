@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Market Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+<body>
+
+       <!-- Navigation Bar -->
+    <nav class="tm-navbar">
+        <a href="#" class="tm-brand">Thememarket</a>
+        
+        <ul class="tm-nav-menu">
+            <li class="tm-nav-item">
+                <a href="index.html" class="tm-nav-link">Home</a>
+            </li>
+            <li class="tm-nav-item">
+                <a href="theme.html" class="tm-nav-link">Themes</a>
+                <div class="tm-dropdown-content">
+                    <a href="#" class="tm-dropdown-link">Business Themes</a>
+                    <a href="#" class="tm-dropdown-link">Portfolio Themes</a>
+                    <a href="#" class="tm-dropdown-link">Blog Themes</a>
+                    <a href="#" class="tm-dropdown-link">E-Commerce Themes</a>
+                </div>
+            </li>
+            <li class="tm-nav-item">
+                <a href="template.html" class="tm-nav-link">Templates</a>
+                <div class="tm-dropdown-content">
+                    <a href="#" class="tm-dropdown-link">HTML Templates</a>
+                    <a href="#" class="tm-dropdown-link">Landing Page Templates</a>
+                    <a href="#" class="tm-dropdown-link">UI Kits</a>
+                </div>
+            </li>
+            <li class="tm-nav-item">
+                <a href="about.html" class="tm-nav-link tm-active">About Us</a>
+            </li>
+            <li class="tm-nav-item">
+                <a href="contact.html" class="tm-nav-link">Contact</a>
+            </li>
+        </ul>
+
+        <div class="tm-nav-actions">
+            <button class="tm-icon-btn" id="tmUserBtn" aria-label="User account">
+              <i class="fa-regular fa-circle-user"></i>
+            </button>
+        <button class="tm-icon-btn" >
+                 <a href="cart.html" style="text-decoration: none; color:#76C01D">   <i class="fa-solid fa-cart-shopping"></i></a>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Auth Modal -->
+    <div class="tm-modal-overlay" id="tmAuthModal">
+        <div class="tm-modal-container">
+            <div class="tm-modal-left">
+                <div class="tm-modal-circle-large"></div>
+                <div class="tm-modal-circle-small"></div>
+            </div>
+            <div class="tm-modal-right">
+                <button class="tm-close-btn" id="tmCloseModal">&times;</button>
+                
+                <!-- Sign In Form -->
+                <div id="tmSignInForm">
+                    <h2 class="tm-modal-title">Sign in</h2>
+                    <form>
+                        <div class="tm-form-group">
+                            <input type="text" class="tm-form-input" placeholder="Full name" required>
+                        </div>
+                        <div class="tm-form-group">
+                            <input type="email" class="tm-form-input" placeholder="Email" required>
+                        </div>
+                        <div class="tm-checkbox-group">
+                            <input type="checkbox" id="tmTerms">
+                            <label for="tmTerms">I understood the <a href="#">terms & policy</a>.</label>
+                        </div>
+                        <button type="submit" class="tm-submit-btn">Create Account</button>
+                    </form>
+                    <div class="tm-divider"><span>OR</span></div>
+                    <button class="tm-google-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Sign in with Google
+                    </button>
+                    <div class="tm-switch-auth">
+                        Already have an account? <a href="#" id="tmSwitchToLogin">Log in</a>
+                    </div>
+                </div>
+
+                <!-- Log In Form -->
+                <div id="tmLogInForm" class="tm-hidden">
+                    <h2 class="tm-modal-title">Log in</h2>
+                    <form>
+                        <div class="tm-form-group">
+                            <input type="email" class="tm-form-input" placeholder="Email" required>
+                        </div>
+                        <div class="tm-form-group">
+                            <input type="password" class="tm-form-input" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="tm-submit-btn">Log In</button>
+                    </form>
+                    <div class="tm-divider"><span>OR</span></div>
+                    <button class="tm-google-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Sign in with Google
+                    </button>
+                    <div class="tm-switch-auth">
+                        Don't have an account? <a href="#" id="tmSwitchToSignIn">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+      <!-- Hero Banner -->
+    <section class="abouthero-banner">
+        <div class="hero-content">
+            <h1 class="abhero-title">Empowering Creators Worldwide</h1>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search for WordPress, E commerce...">
+                <button class="absearch-btn">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Stats Section -->
+        <h2 class="section-heading">Save on UI Templates</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="abstat-icon"><i class="fa-solid fa-users"></i></div>
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div class="stat-card">
+                <div class="abstat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                <div class="stat-number">2.5M+</div>
+                <div class="stat-label">Downloads</div>
+            </div>
+            <div class="stat-card">
+                <div class="abstat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="stat-number">15K+</div>
+                <div class="stat-label">Products</div>
+            </div>
+            <div class="stat-card">
+                <div class="abstat-icon"><i class="fa-solid fa-globe"></i></div>
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Countries</div>
+            </div>
+        </div>
+
+        <!-- Mission Cards -->
+        <div class="mission-grid">
+            <div class="mission-card">
+                <div class="mission-icon"><img src="Images/a1.png"></div>
+                <h3 class="mission-title">Our Mission</h3>
+                <p class="mission-desc">To democratize web design by providing high-quality, affordable templates and themes that empower creators to build stunning websites without barriers.</p>
+            </div>
+            <div class="mission-card">
+                <div class="mission-icon"><img src="Images/a2.png"></div>
+                <h3 class="mission-title">Our Vision</h3>
+                <p class="mission-desc">To be the world's most trusted marketplace for web templates and themes, known for quality, innovation, and exceptional customer experience.</p>
+            </div>
+            <div class="mission-card">
+                <div class="mission-icon"><img src="Images/a3.png"></div>
+                <h3 class="mission-title">Our Impact</h3>
+                <p class="mission-desc">We've helped over 50,000 creators launch their websites, saving millions in development costs and countless hours of work.</p>
+            </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="values-section">
+            <h2 class="values-title">Our Core Values</h2>
+            <p class="values-subtitle">The principles that guide everything we do</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon"><img src="Images/a1.png"></div>
+                    <h3 class="value-title">Customer First</h3>
+                    <p class="value-desc">Everything we do starts with our customers. We listen, adapt, and continuously improve to deliver the best experience.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><img src="Images/a2.png"></div>
+                    <h3 class="value-title">Quality Excellence</h3>
+                    <p class="value-desc">We maintain the highest standards for every theme and template. Each product is carefully reviewed and tested.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><img src="Images/a3.png"></div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-desc">We stay ahead of design trends and technology to provide cutting-edge solutions for modern web development.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="team-section">
+            <h2 class="team-title">Meet Our Team</h2>
+            <p class="team-subtitle">The passionate people behind the platform</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="Images/t1.png" alt="Sarah Johnson">
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name">Sarah Johnson</div>
+                        <div class="member-role">CEO & Founder</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                     <img src="Images/t2.png" alt="Sarah Johnson">
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name">Michael Chen</div>
+                        <div class="member-role">CTO</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                       <img src="Images/t3.png" alt="Sarah Johnson">
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name">Emily Rodriguez</div>
+                        <div class="member-role">Head of Design</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                       <img src="Images/t4.png" alt="Sarah Johnson">
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name">David Park</div>
+                        <div class="member-role">VP of Product</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                       <img src="Images/t5.png" alt="Sarah Johnson">
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name">James Wilson</div>
+                        <div class="member-role">Head of Customer Success</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                       <img src="Images/t6.png" alt="Sarah Johnson">
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name">Lisa Anderson</div>
+                        <div class="member-role">Head of Marketing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Start Creating?</h2>
+            <p class="cta-desc">Join thousands of designers and developers who trust our platform to build amazing websites. Get started today.</p>
+            <div class="cta-buttons">
+                <button class="primary-btn">Browse Templates</button>
+                <button class="secondary-btn">Contact</button>
+            </div>
+        </div>
+    </div>
+
+
+      <!-- Footer Section -->
+    <footer class="footer-container">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <h2>ThemeMarket</h2>
+                    <div class="footer-links">
+                        <a href="#">All Items</a>
+                        <a href="#">WordPress Themes</a>
+                        <a href="#">HTML Templates</a>
+                        <a href="#">UI Templates</a>
+                        <a href="#">Plugins</a>
+                    </div>
+                </div>
+
+                <!-- Company Column -->
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <div class="footer-links">
+                        <a href="#">About</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Press</a>
+                        <a href="#">Blog</a>
+                    </div>
+                </div>
+
+                <!-- Support Column -->
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <div class="footer-links">
+                        <a href="#">Help Center</a>
+                        <a href="#">Documentation</a>
+                        <a href="#">Forums</a>
+                        <a href="#">Contact Support</a>
+                    </div>
+                </div>
+
+                <!-- Legal Column -->
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <div class="footer-links">
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">License Agreement</a>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 ThemeMarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

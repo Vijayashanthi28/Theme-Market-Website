@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Market Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+</head>
+<body>
+
+   
+
+    
+     <header class="confirmation-header">
+        <div class="confirmation-logo">Thememarket</div>
+        <button class="confirmation-close-btn" onclick="closeWindow()">×</button>
+    </header>
+
+    <div class="confirmation-content">
+        <div class="success-animation-wrapper">
+            <!-- Main Success Checkmark -->
+            <div class="success-checkmark-circle">
+                <div class="success-checkmark-icon">✓</div>
+            </div>
+
+            <!-- Confetti Pieces (Circles) -->
+            <div class="confetti-piece confetti-1"></div>
+            <div class="confetti-piece confetti-2"></div>
+            <div class="confetti-piece confetti-3"></div>
+            <div class="confetti-piece confetti-4"></div>
+            <div class="confetti-piece confetti-5"></div>
+            <div class="confetti-piece confetti-6"></div>
+            <div class="confetti-piece confetti-7"></div>
+            <div class="confetti-piece confetti-8"></div>
+
+            <!-- Star Confetti -->
+            <div class="confetti-star star-1"></div>
+            <div class="confetti-star star-2"></div>
+            <div class="confetti-star star-3"></div>
+
+            <!-- Ribbon Confetti -->
+            <div class="confetti-ribbon ribbon-1"></div>
+            <div class="confetti-ribbon ribbon-2"></div>
+            <div class="confetti-ribbon ribbon-3"></div>
+            <div class="confetti-ribbon ribbon-4"></div>
+        </div>
+
+        <h1 class="confirmation-heading">Payment Successful</h1>
+        <p class="confirmation-subheading">
+            Successful Paid <span class="confirmation-amount">US$ 191.00</span>
+        </p>
+
+        <h2 class="payment-details-heading">Payment Details</h2>
+
+        <div class="payment-details-card">
+            <div class="payment-detail-row">
+                <span class="payment-detail-label">Transaction ID</span>
+                <span class="payment-detail-value">356144228732</span>
+            </div>
+            <div class="payment-detail-row">
+                <span class="payment-detail-label">Date</span>
+                <span class="payment-detail-value">21 May 2025</span>
+            </div>
+            <div class="payment-detail-row">
+                <span class="payment-detail-label">Type of Transaction</span>
+                <span class="payment-detail-value">Credit Card</span>
+            </div>
+            <div class="payment-detail-row">
+                <span class="payment-detail-label">Amount</span>
+                <span class="payment-detail-value">US$ 191.00</span>
+            </div>
+            <div class="payment-detail-row">
+                <span class="payment-detail-label">Tax%</span>
+                <span class="payment-detail-value">$90</span>
+            </div>
+            <div class="payment-detail-row">
+                <span class="payment-detail-label">Status</span>
+                <span class="payment-detail-value success-status">Success</span>
+            </div>
+        </div>
+
+        <button class="back-home-btn" onclick="goToHome()">Back to Home</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
